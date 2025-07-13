@@ -15,11 +15,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Màu nền tối với độ mờ */
+    background-color: rgba(0, 0, 0, 0); /* Màu nền tối với độ mờ */
     z-index: 1; /* Đặt lớp nền dưới cùng */
 }
 
 #root > div {
     position: relative;
     z-index: 1; /* Đặt các phần tử con trên lớp nền */
+}
+
+.step {
 }
