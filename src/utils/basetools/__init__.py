@@ -138,3 +138,7 @@ __all__ = [
     'send_email_tool',
     'create_send_email_tool'
 ]
+
+from .tool import Tool
+
+__all__.append('Tool')

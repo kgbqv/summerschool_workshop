@@ -1,5 +1,10 @@
 from data.milvus.indexing import MilvusIndexer
 import os
+import os
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+
+print("\n".join(sys.path))
 from llm.base import AgentClient
 from pydantic_ai.models.gemini import GeminiModel
 from pydantic_ai.providers.google_gla import GoogleGLAProvider
@@ -23,18 +28,23 @@ model = GeminiModel('gemini-2.0-flash', provider=provider)
 faq_tool = create_faq_tool(collection_name="company1")
 from utils.basetools.search_web_tool import SearchInput, search_web
 
+from utils.basetools import Tool
+
 def ptnk_search_tool(query: str, max_results: int = 5):
     search_query = f"site:ptnk.edu.vn {query}"
     input_data = SearchInput(query=search_query, max_results=max_results)
     return search_web(input_data)
 
-ptnk_tool = {
-    "name": "ptnk_tool",
-    "description": "Tra cứu thông tin trường PTNK từ website ptnk.edu.vn bằng search_web_tool.py",
-    "input_model": SearchInput,
-    "output_model": None,
-    "run": lambda input: ptnk_search_tool(input.query, input.max_results)
-}
+def create_ptnk_tool():
+    return Tool(
+        name="ptnk_tool",
+        func=ptnk_search_tool,
+        description="Tra cứu thông tin trường PTNK từ website ptnk.edu.vn bằng search_web_tool.py",
+        input_model=SearchInput,
+        output_model=SearchOutput
+    )
+
+ptnk_tool = create_ptnk_tool()
 
 
 # Tool tạo thời khoá biểu

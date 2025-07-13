@@ -1,28 +1,57 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+:root {
+  --bubble-bg: rgba(0, 0, 0, 0.4);
+  --accent: rgba(218, 5, 5, 0.8) !important;
+  --bubble-radius: 12px;
+  --bubble-padding: 0.75rem 1rem;
+  --pointer-size: 0.6rem;
+  --pointer-offset: 1rem;
+}
+
 #root {
-    background-image: url('/public/idk.jpg');
-    background-size: cover; /* Đảm bảo hình nền che phủ toàn bộ trang */
-    background-repeat: no-repeat; /* Ngăn hình nền lặp lại */
-    background-position: center center; /* Căn giữa hình nền */
-    background-attachment: fixed; /* Giữ hình nền cố định khi cuộn */
+  background: url('/public/idk.jpg') center/cover fixed no-repeat;
 }
 
-#root::before{
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
+#root::before {
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+/* Message bubble base */
+.step { 
+  padding: var(--bubble-padding);
+  margin: 0.5rem 0;
+  border-radius: var(--bubble-radius);
+  background-color: var(--bubble-bg);
+}
+
+::-webkit-scrollbar {
+    border-radius: 10px;
+    background-color: transparent;
+}
+*::-webkit-scrollbar-thumb {
+
+    -webkit-border-radius: 10px;
+
+    border-radius: 10px;
+
+    background: rgba(0,0,0,0.5); 
+
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+
+button {
+    background-color: var(--bubble-bg) !important;
+    border: none;
+    color: white;
+}
+
+img.w-full {
     width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0); /* Màu nền tối với độ mờ */
-    z-index: 1; /* Đặt lớp nền dưới cùng */
+    height: auto;
+    border-radius: 0rem !important;
 }
 
-#root > div {
-    position: relative;
-    z-index: 1; /* Đặt các phần tử con trên lớp nền */
-}
-
-.step {
+.rounded-full {
+    border-radius: 0% !important;
 }
