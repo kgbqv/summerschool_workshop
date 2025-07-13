@@ -13,7 +13,7 @@
 }
 
 #root::before {
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0);
   z-index: 1;
 }
 
@@ -53,5 +53,13 @@ img.w-full {
 }
 
 .rounded-full {
-    border-radius: 0% !important;
+    border-radius: 20% !important;
+}
+
+#message-composer {
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    z-index: 10;
+    box-shadow: 0 -2px 10px rgba(52, 189, 68, 0.5);
 }

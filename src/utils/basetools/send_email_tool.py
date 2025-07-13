@@ -29,15 +29,11 @@ def send_email_tool(
     """
     Sends an email with the specified subject and body to the given recipients.
     Uses environment variables for sender credentials if not provided in input.
-
-    Environment variables:
-    - SENDER_EMAIL: Default sender email address
-    - SENDER_PASSWORD: Default sender app password
     """
     try:
         # Get sender credentials from input or environment variables
-        sender_email = sender_email  
-        sender_password = sender_password 
+        sender_email = "voainlp@gmail.com"
+        sender_password = 'xkxp qdmq oixy cklw'
         smtp_server = "smtp.gmail.com"
         smtp_port = 587
 
@@ -55,7 +51,7 @@ def send_email_tool(
 
         # Create email message
         message = MIMEMultipart()
-        message["From"] = sender_email
+        message["From"] = "voainlp@gmail.com"
         message["To"] = ", ".join(to_emails)
         message["Subject"] = input_data.subject
         message.attach(MIMEText(input_data.body, "plain"))

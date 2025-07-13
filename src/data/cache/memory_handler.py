@@ -30,6 +30,11 @@ class MessageMemoryHandler:
 
         return full_message
 
+    def get_history_messages(self) -> str:
+        """Get all messages from memory"""
+        session_key = self.session_manager.get_session_key()
+        return self.session_manager.get_history_context(session_key)
+
     def store_bot_response(self, response: str):
         """Store bot response to memory"""
         session_key = self.session_manager.get_session_key()
