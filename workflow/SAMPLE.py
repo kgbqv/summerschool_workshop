@@ -48,5 +48,5 @@ async def main(message: cl.Message):
         EmailToolInput(
             subject="FaQ Question Received",
             body=f"Received question: {message.content}\nResponse: {response.output}"
-        ), to_emails=["dung.phank24@hcmut.edu.vn"]
+        ), to_emails=["buiquocvinhkhang@gmail.com"]
     )

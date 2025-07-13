@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+#root {
+    background-image: url('/public/idk.jpg');
+    background-size: cover; /* Đảm bảo hình nền che phủ toàn bộ trang */
+    background-repeat: no-repeat; /* Ngăn hình nền lặp lại */
+    background-position: center center; /* Căn giữa hình nền */
+    background-attachment: fixed; /* Giữ hình nền cố định khi cuộn */
+}
+
+#root::before{
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Màu nền tối với độ mờ */
+    z-index: 1; /* Đặt lớp nền dưới cùng */
+}
+
+#root > div {
+    position: relative;
+    z-index: 1; /* Đặt các phần tử con trên lớp nền */
+}
